@@ -1,0 +1,15 @@
+server:
+  port: 8091
+
+#KeyClock-jwt
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          client-id: edge-service
+          client-secret: nZgKnsXQ3YvR8x5Ubx2qWj8jXLBI4q59
+      resource-server:
+        jwt:
+          issuer-uri: http://localhost:8088/realms/keycloak-jwt-demo
+          jwk-set-uri: ${spring.security.oauth2.resource-server.jwt.issuer-uri}/protocol/openid-connect/certs
