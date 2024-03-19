@@ -8,8 +8,19 @@ spring:
       client:
         registration:
           client-id: edge-service
-          client-secret: nZgKnsXQ3YvR8x5Ubx2qWj8jXLBI4q59
+          client-secret: nZgKnsXQ3YvR8x5Ubx2qWj8jXLBI4q59x
       resource-server:
         jwt:
           issuer-uri: http://localhost:8088/realms/keycloak-jwt-demo
           jwk-set-uri: ${spring.security.oauth2.resource-server.jwt.issuer-uri}/protocol/openid-connect/certs
+  docker:
+    compose:
+      lifecycle-management: start_only
+
+
+jwt:
+  auth:
+    converter:
+      resource-id:  edge-service
+      principle-attribute: preferred_username
+
